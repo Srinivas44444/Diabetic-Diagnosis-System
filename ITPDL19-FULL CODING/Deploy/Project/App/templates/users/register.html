@@ -1,0 +1,344 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #6a62d2;
+      background-image: url('/static/assets/img/b2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .login-page {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form {
+      width: 360px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .form input {
+      outline: 0;
+      background: #f2f2f2;
+      border-radius: 4px;
+      width: calc(100% - 30px);
+      border: 1px solid #ddd;
+      margin: 15px 0;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    .form input:focus {
+      box-shadow: 0 0 5px rgba(106, 98, 210, 0.5);
+      border-color: #6a62d2;
+    }
+
+    .form button {
+      outline: 0;
+      background: #6a62d2;
+      width: 100%;
+      border: 0;
+      margin-top: 10px;
+      border-radius: 4px;
+      padding: 15px;
+      color: #ffffff;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form button:hover {
+      background: #5a54a7;
+    }
+
+    .form .message {
+      margin: 15px 0;
+      text-align: center;
+    }
+
+    .form .message a {
+      font-size: 14px;
+      color: #6a62d2;
+      text-decoration: none;
+    }
+
+    .alert {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .alert button.close {
+      background: none;
+      border: none;
+      color: inherit;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <form method="post" class="login-form">
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="alert alert-danger">
+          {% for key, value in form.errors.items %}
+          <strong>{{ value }}</strong><br>
+          {% endfor %}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endif %}
+        <h2>REGISTER </h2>
+
+        {{ form.first_name }}
+        {{ form.last_name }}
+        {{ form.username }}
+        {{ form.email }}
+        {{ form.password1 }}
+        {{ form.password2 }}
+
+        <button type="submit">SIGN IN</button>
+        <p class="message"><a href="{% url 'login' %}">Do have an account?</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login design ui</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  padding:0;
+  margin:0;
+  font-family:'poppins',sans-serif;
+  user-select:none;
+}
+.contain{
+  width:auto;
+  height:100vh;
+  background-color: #19b7ca;
+  background-image: linear-gradient(0deg, #19b7ca 0%, #b263ff 100%);
+
+}
+.main{
+  background:none;
+  width:500px;
+  height:30rem;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:5px;
+  display: grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-template-rows:100%;
+  backdrop-filter: blur(2px);
+  box-shadow:0px 0px 10px 3px #FFFFFF;
+}
+.left{
+ border-radius:5px 0 0 5px; background:rgba(255,255,255,0.4);
+  opacity:1;
+}
+h3{
+  position:absolute;
+  top:40%;
+  left:21%;
+  transform:translate(-30%,-50%);
+  font-size:29px;
+  color:white;
+  font-weight:300;
+  background:rgba(128, 129, 202, 1);
+  border-radius: 37% 63% 30% 70% / 62% 42% 58% 38%;
+  height:80px;
+  width:120px;
+  text-align:center;
+  padding-top:40px;
+  animation:border;
+  animation-duration:8s;
+  animation-iteration-count:infinite;
+}
+@keyframes border{
+  0%{
+    border-radius:37% 63% 30% 70% / 62% 42% 58% 38%;
+  }
+  30%{
+    border-radius:58% 42% 44% 56% / 38% 70% 30% 62%;
+  }
+  50%{
+    border-radius:72% 28% 88% 12% / 25% 45% 55% 75%;
+  }
+  70%{
+    border-radius:36% 64% 37% 63% / 52% 64% 36% 48%;
+  }
+  90%{
+    border-radius:70% 30% 62% 38% / 26% 47% 53% 74%;
+  }
+}
+a{
+  position:absolute;
+  top:90%;
+  left:15%;
+  color:black;
+  font-weight:300;
+}
+.right{
+  border-radius:0 5px 5px 0; 
+  background:rgba(255,255,255,0.8);
+}
+input{
+  margin-left:22px;
+  width:80%;
+  height:29px;
+  border-radius:5px;
+  border:none;
+  outline:none;
+  box-shadow:1.1px 1.2px 6px 1px gray;
+  padding:5px;
+  transition:0.3s;
+}
+span{
+  display:flex;
+}
+.check{
+  margin-top:5px;
+  width:15px;
+  heiht:15px;
+  box-shadow:none;
+  accent-color:green;
+}
+label{
+  margin-top:8.5px;
+  margin-left:5px;
+  font-size:14px;
+}
+.txt{
+  margin-top:50px;
+}
+.pass{
+  margin-top:20px;
+}
+.email{
+  margin-top:20px;
+}
+button{
+  cursor:pointer;
+}
+#sub{
+  margin-top:20px;
+  margin-left:1.5rem;
+  border:none;
+  background:none;
+  font-size:16px;
+  padding:4px;
+  border-bottom:1px solid black;
+  transition:0.3s;
+}
+.rest{
+  float:right;
+  margin-top:20px;
+  margin-right:1.6rem;
+  border:none;
+  background:none;
+  font-size:16px;
+  padding:4px;
+  border-bottom:1px solid black;
+  transition:0.3s;
+}
+.rest:hover{
+  border-bottom:1px solid green;
+}
+#sub:hover{
+  border-bottom:1px solid green;
+}
+input:focus{
+  border-bottom:3px solid green;
+}
+  </style>
+</head>
+<body>
+  <div class="contain">
+    
+    <div class="main">
+      <div class="left">
+        <h3>Register</h3>
+        
+      </div>
+      <div class="right">
+        <br>
+        <center><h1>Register</h1></center>
+        <form method="post" class="login-form ">
+          {% csrf_token %}
+          {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                    <strong style="color: darksalmon;">{{ value }}</strong>
+                    {% endfor %}
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          {% endif %}
+          <br>
+          {{ form.first_name }}
+          <br><br>
+          {{ form.last_name }}
+          <br><br>
+          {{ form.username }}
+          <br><br>
+          {{ form.email }}
+          <br><br>
+          {{ form.password1 }}
+          <br><br>
+          {{ form.password2 }}
+          <br>
+          
+       
+        
+          
+        <button id="sub">Submit</button>
+        <h4 class="message"><a href="{% url 'login' %}">Go to Login</a></h4>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>

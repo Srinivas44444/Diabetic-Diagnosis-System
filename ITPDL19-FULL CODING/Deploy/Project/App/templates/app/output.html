@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ predict | upper }} Prediction</title>
+    
+<style>
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f77272;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Content Styling */
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+.content h2 {
+    font-size: 24px;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.content h3 {
+    font-size: 20px;
+    color: #343a40;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.content h4 {
+    font-size: 18px;
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+/* Paragraph and List Styles */
+.content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.content ul li {
+    margin-bottom: 10px;
+}
+
+.content ul ul {
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+/* Button and Link Styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .content {
+        padding: 15px;
+    }
+
+    .content h2 {
+        font-size: 20px;
+    }
+
+    .content h3 {
+        font-size: 18px;
+    }
+
+    .content h4 {
+        font-size: 16px;
+    }
+}
+/* Container Styling */
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Content Styling */
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+}
+a.top {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #053777;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+a.top:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+</style>
+
+   
+
+     
+</head>
+
+<body>
+    <a href="/" class="top">Back to Home</a>
+    
+
+
+    <br>
+    <br><br><br>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-content">
+                <img src="{{ obj.image.url }}" alt="Input Images" class="mb-4">
+                <p class="card-title">{{ predicted | upper }}</p>
+            </div>
+        </div>
+    </div>
+
+    {% if obj %}
+    {% if predict == 'Mild' %}
+    <div class="content mild-diabetic">
+        <h2>Diabetes: Mild Condition Detected</h2>
+        <p>Your uploaded image has been analyzed, and the condition detected is mild diabetes. This stage is critical as it provides an opportunity for early intervention, which can prevent the progression to more severe stages of diabetes. Below is detailed information on managing and understanding this condition.</p>
+
+        <h3>Understanding Mild Diabetes</h3>
+        <p>Mild diabetes, often referred to as prediabetes, is a condition where blood sugar levels are elevated but not high enough to meet the diagnostic criteria for type 2 diabetes. This stage is a warning sign, indicating that your body is beginning to have trouble managing blood glucose levels. It's crucial to take action now to reverse the condition or delay the onset of more severe diabetes.</p>
+
+        <h4>What Causes Mild Diabetes?</h4>
+        <p>Mild diabetes can be caused by a combination of genetic and lifestyle factors. Common risk factors include:</p>
+        <ul>
+            <li><strong>Family History:</strong> A family history of diabetes can increase your risk.</li>
+            <li><strong>Overweight or Obesity:</strong> Excess weight, particularly around the abdomen, can contribute to insulin resistance.</li>
+            <li><strong>Physical Inactivity:</strong> Lack of regular physical activity can lead to weight gain and higher blood sugar levels.</li>
+            <li><strong>Unhealthy Diet:</strong> Diets high in refined sugars and fats can increase the risk of developing mild diabetes.</li>
+            <li><strong>Age:</strong> The risk increases with age, especially after 45 years.</li>
+        </ul>
+
+        <h4>Signs and Symptoms</h4>
+        <p>Mild diabetes often does not cause any noticeable symptoms. However, some people may experience:</p>
+        <ul>
+            <li>Increased thirst</li>
+            <li>Frequent urination</li>
+            <li>Fatigue</li>
+            <li>Blurry vision</li>
+            <li>Slow healing of cuts and bruises</li>
+        </ul>
+        <p>Because symptoms can be mild or non-existent, regular health check-ups and blood sugar testing are essential for early detection.</p>
+
+        <h3>Management and Care</h3>
+        <p>Managing mild diabetes involves making healthier lifestyle choices to bring blood sugar levels back to normal. Here are key strategies:</p>
+        <ul>
+            <li><strong>Dietary Adjustments:</strong> 
+                <ul>
+                    <li>Focus on a diet rich in vegetables, whole grains, lean proteins, and healthy fats.</li>
+                    <li>Avoid foods and drinks high in refined sugars and trans fats.</li>
+                    <li>Consider smaller, more frequent meals to help maintain steady blood sugar levels.</li>
+                    <li>Incorporate foods with a low glycemic index (GI) to prevent spikes in blood sugar.</li>
+                </ul>
+            </li>
+            <li><strong>Regular Exercise:</strong> 
+                <ul>
+                    <li>Aim for at least 150 minutes of moderate-intensity exercise per week (e.g., brisk walking, cycling).</li>
+                    <li>Include strength training exercises twice a week to improve insulin sensitivity.</li>
+                    <li>Stay active throughout the day—avoid long periods of sitting.</li>
+                </ul>
+            </li>
+            <li><strong>Weight Management:</strong> 
+                <ul>
+                    <li>Even a modest weight loss (5-10% of your body weight) can have a significant impact on blood sugar levels.</li>
+                    <li>Adopt sustainable eating and exercise habits to maintain a healthy weight long-term.</li>
+                </ul>
+            </li>
+            <li><strong>Stress Management:</strong>
+                <ul>
+                    <li>Chronic stress can affect blood sugar levels. Practice relaxation techniques such as deep breathing, meditation, or yoga.</li>
+                    <li>Ensure adequate sleep each night (7-9 hours) to help regulate blood sugar.</li>
+                </ul>
+            </li>
+            <li><strong>Regular Monitoring:</strong>
+                <ul>
+                    <li>Monitor blood sugar levels regularly to track progress and identify any changes early.</li>
+                    <li>Keep a log of your readings and share them with your healthcare provider during check-ups.</li>
+                </ul>
+            </li>
+            <li><strong>Consult a Healthcare Provider:</strong> 
+                <ul>
+                    <li>Work with your doctor to create a personalized care plan.</li>
+                    <li>Your doctor may recommend additional tests, such as an A1C test, to assess your average blood sugar levels over the past 2-3 months.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Precautions and Preventative Measures</h3>
+        <p>Taking proactive steps can help prevent mild diabetes from progressing:</p>
+        <ul>
+            <li><strong>Healthy Eating Habits:</strong> Incorporate more fiber into your diet and reduce intake of processed foods.</li>
+            <li><strong>Stay Active:</strong> Regular physical activity helps your body use insulin more efficiently.</li>
+            <li><strong>Avoid Smoking and Limit Alcohol:</strong> Smoking can increase insulin resistance, and excessive alcohol can affect blood sugar control.</li>
+            <li><strong>Routine Health Check-ups:</strong> Regular visits to your healthcare provider can help monitor your condition and make adjustments as needed.</li>
+        </ul>
+
+        <p>Early intervention is key to managing mild diabetes effectively. By making informed lifestyle choices, you can maintain healthy blood sugar levels and prevent the onset of type 2 diabetes. Remember, it's never too late to start taking better care of your health.</p>
+    </div>
+    
+    {% elif predict == 'Moderate' %}
+    <div class="content moderate-diabetic">
+        <h2>Diabetes: Moderate Condition Detected</h2>
+        <p>Your uploaded image has been analyzed, and the condition detected is moderate diabetes. This stage requires careful management to prevent further progression to a more severe form of diabetes. Below is comprehensive information on managing and understanding moderate diabetes.</p>
+
+        <h3>Understanding Moderate Diabetes</h3>
+        <p>Moderate diabetes is a more advanced stage of diabetes where blood sugar levels are consistently higher than normal. This stage is critical as it indicates that the body is struggling to regulate glucose effectively, and without proper management, it could progress to severe diabetes, which can lead to serious health complications.</p>
+
+        <h4>What Causes Moderate Diabetes?</h4>
+        <p>Moderate diabetes can result from a combination of factors, including:</p>
+        <ul>
+            <li><strong>Progression from Mild Diabetes:</strong> If mild diabetes is not effectively managed, it can progress to a moderate stage.</li>
+            <li><strong>Insulin Resistance:</strong> The body's cells become resistant to insulin, making it difficult to manage blood sugar levels.</li>
+            <li><strong>Pancreatic Dysfunction:</strong> The pancreas may not produce enough insulin to keep blood sugar levels within a healthy range.</li>
+            <li><strong>Unhealthy Lifestyle Choices:</strong> Poor diet, lack of physical activity, and stress can exacerbate the condition.</li>
+        </ul>
+
+        <h4>Signs and Symptoms</h4>
+        <p>Moderate diabetes often presents more noticeable symptoms compared to mild diabetes, including:</p>
+        <ul>
+            <li>Increased thirst and frequent urination</li>
+            <li>Significant fatigue and weakness</li>
+            <li>Blurred vision</li>
+            <li>Slow healing of wounds and frequent infections</li>
+            <li>Tingling or numbness in hands and feet</li>
+            <li>Unexplained weight loss</li>
+        </ul>
+        <p>If you experience these symptoms, it is crucial to consult a healthcare provider immediately to manage the condition effectively.</p>
+
+        <h3>Management and Care</h3>
+        <p>Managing moderate diabetes requires a more structured and disciplined approach to prevent further progression and minimize the risk of complications. Key strategies include:</p>
+        <ul>
+            <li><strong>Strict Dietary Control:</strong>
+                <ul>
+                    <li>Adopt a low-carbohydrate diet with an emphasis on complex carbs, lean proteins, and healthy fats.</li>
+                    <li>Avoid sugary foods, refined grains, and trans fats.</li>
+                    <li>Incorporate high-fiber foods such as vegetables, whole grains, and legumes.</li>
+                    <li>Practice portion control and consider eating smaller, more frequent meals to maintain stable blood sugar levels.</li>
+                </ul>
+            </li>
+            <li><strong>Regular Physical Activity:</strong>
+                <ul>
+                    <li>Engage in at least 150 minutes of moderate-intensity exercise per week, such as brisk walking, swimming, or cycling.</li>
+                    <li>Include strength training exercises to improve muscle mass and insulin sensitivity.</li>
+                    <li>Stay active throughout the day to avoid prolonged periods of inactivity.</li>
+                </ul>
+            </li>
+            <li><strong>Weight Management:</strong>
+                <ul>
+                    <li>If overweight, focus on gradual weight loss to improve blood sugar control.</li>
+                    <li>Adopt sustainable dietary and exercise habits to maintain a healthy weight.</li>
+                </ul>
+            </li>
+            <li><strong>Medication Adherence:</strong>
+                <ul>
+                    <li>Take prescribed medications as directed by your healthcare provider.</li>
+                    <li>Monitor blood sugar levels regularly to ensure your medication is effectively managing your condition.</li>
+                    <li>Discuss any side effects or concerns with your healthcare provider to adjust the treatment plan if necessary.</li>
+                </ul>
+            </li>
+            <li><strong>Stress Management and Mental Health:</strong>
+                <ul>
+                    <li>Chronic stress can negatively impact blood sugar levels, so practice stress-reducing techniques like meditation, deep breathing, or yoga.</li>
+                    <li>Consider speaking with a mental health professional if you are experiencing anxiety or depression related to your condition.</li>
+                </ul>
+            </li>
+            <li><strong>Regular Monitoring and Medical Check-ups:</strong>
+                <ul>
+                    <li>Monitor your blood sugar levels daily to track your progress and make informed decisions about your diet and medication.</li>
+                    <li>Attend regular check-ups with your healthcare provider to assess your condition and adjust your treatment plan as needed.</li>
+                    <li>Your doctor may recommend additional tests, such as an A1C test, to assess long-term blood sugar control.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Precautions and Preventative Measures</h3>
+        <p>To manage moderate diabetes effectively and prevent complications, consider the following precautions:</p>
+        <ul>
+            <li><strong>Healthy Eating Habits:</strong> Consistently follow a balanced diet that supports stable blood sugar levels.</li>
+            <li><strong>Avoid Smoking and Limit Alcohol:</strong> Smoking and excessive alcohol intake can worsen diabetes and increase the risk of complications.</li>
+            <li><strong>Stay Active:</strong> Regular physical activity helps your body use insulin more efficiently and lowers blood sugar levels.</li>
+            <li><strong>Monitor Your Health:</strong> Regularly check your blood pressure, cholesterol levels, and other vital signs to manage your overall health.</li>
+            <li><strong>Stay Informed:</strong> Educate yourself about diabetes and stay updated on the latest management strategies.</li>
+        </ul>
+
+        <h3>Further Steps and Resources</h3>
+        <p>Dealing with moderate diabetes requires a proactive approach and consistent care. Here are additional resources and steps to consider:</p>
+        <ul>
+            <li><strong>Diabetes Education Programs:</strong> Attend diabetes education programs to learn more about managing your condition effectively.</li>
+            <li><strong>Support Groups:</strong> Join a support group for people with diabetes to share experiences and strategies for managing the condition.</li>
+            <li><strong>Technology Assistance:</strong> Utilize apps or devices that help monitor blood sugar levels, track your diet, and remind you to take medications.</li>
+            <li><strong>Family and Community Support:</strong> Involve your family in your care plan, and consider seeking support from your community for additional assistance.</li>
+        </ul>
+
+        <p>By adhering to these guidelines and working closely with your healthcare provider, you can manage moderate diabetes effectively and reduce the risk of developing severe complications. Taking control of your health now is essential to maintaining a good quality of life.</p>
+    </div>
+
+    {% elif predict == 'No_DR' %}
+    <div class="content no-dr-diabetic">
+        <h2>No Diabetic Retinopathy Detected</h2>
+        <p>Your uploaded image has been analyzed, and the result indicates no signs of diabetic retinopathy. This is a positive outcome, suggesting that your eyes are currently free from this diabetes-related complication. Below is more information on what this means and how to maintain your eye health.</p>
+
+        <h3>Understanding Diabetic Retinopathy</h3>
+        <p>Diabetic retinopathy (DR) is a complication of diabetes that affects the blood vessels in the retina, the light-sensitive tissue at the back of the eye. Early stages of DR often show no symptoms, but as the condition progresses, it can lead to vision loss if left untreated.</p>
+
+        <h4>What Does "No_DR" Mean?</h4>
+        <p>The "No_DR" result indicates that there are currently no detectable signs of diabetic retinopathy in your eyes. This means that your retina is not showing damage from elevated blood sugar levels, which is excellent news. However, it's important to continue monitoring your eye health regularly, especially if you have diabetes.</p>
+
+        <h3>Maintaining Eye Health with Diabetes</h3>
+        <p>Even though no diabetic retinopathy has been detected, it's essential to maintain good eye health and prevent future complications. Here are some key tips:</p>
+        <ul>
+            <li><strong>Regular Eye Exams:</strong>
+                <ul>
+                    <li>Schedule regular eye exams at least once a year. Early detection of any changes can help prevent vision loss.</li>
+                    <li>Consider more frequent check-ups if recommended by your healthcare provider, especially if you have a history of diabetes.</li>
+                </ul>
+            </li>
+            <li><strong>Blood Sugar Control:</strong>
+                <ul>
+                    <li>Keep your blood sugar levels within the target range as recommended by your healthcare provider.</li>
+                    <li>Regular monitoring of blood sugar levels can help prevent complications that may affect your eyes.</li>
+                </ul>
+            </li>
+            <li><strong>Blood Pressure and Cholesterol Management:</strong>
+                <ul>
+                    <li>Maintain healthy blood pressure and cholesterol levels to reduce the risk of developing diabetic retinopathy.</li>
+                    <li>Discuss any concerns with your healthcare provider, who may recommend lifestyle changes or medication.</li>
+                </ul>
+            </li>
+            <li><strong>Healthy Diet:</strong>
+                <ul>
+                    <li>Follow a balanced diet rich in fruits, vegetables, whole grains, and lean proteins to support overall health.</li>
+                    <li>Limit foods high in sugars and unhealthy fats to help maintain stable blood sugar levels.</li>
+                </ul>
+            </li>
+            <li><strong>Regular Physical Activity:</strong>
+                <ul>
+                    <li>Incorporate at least 150 minutes of moderate-intensity exercise each week to help manage diabetes and support eye health.</li>
+                    <li>Activities like walking, swimming, or cycling are beneficial for maintaining overall health.</li>
+                </ul>
+            </li>
+            <li><strong>Avoid Smoking:</strong>
+                <ul>
+                    <li>Smoking can increase the risk of diabetic complications, including retinopathy. If you smoke, seek support to quit.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Precautions to Prevent Diabetic Retinopathy</h3>
+        <p>Even with a "No_DR" result, taking precautions is vital to prevent the onset of diabetic retinopathy:</p>
+        <ul>
+            <li>Ensure consistent blood sugar monitoring and management.</li>
+            <li>Maintain a healthy lifestyle, including a balanced diet and regular exercise.</li>
+            <li>Stay on top of regular health check-ups, including eye exams, to detect any early signs of complications.</li>
+            <li>Follow your healthcare provider’s advice regarding diabetes management, including any medications prescribed.</li>
+        </ul>
+
+        <h3>Future Monitoring and Care</h3>
+        <p>While the current results are reassuring, diabetes is a progressive condition, and ongoing monitoring is essential to catch any potential changes early. Here are some recommendations:</p>
+        <ul>
+            <li><strong>Continue Regular Eye Check-ups:</strong> Keep your annual eye exams as scheduled, even if no symptoms are present.</li>
+            <li><strong>Stay Informed:</strong> Keep up with the latest information on diabetes management and potential complications.</li>
+            <li><strong>Communicate with Your Healthcare Team:</strong> Regularly update your doctor on any changes in your health and follow their advice to maintain your condition.</li>
+        </ul>
+
+        <p>By continuing to manage your diabetes effectively, you can maintain your eye health and reduce the risk of diabetic retinopathy and other complications in the future. Take pride in your current health status and stay committed to your ongoing care.</p>
+    </div>
+
+    {% elif predict == 'Proliferate_DR' %}
+    <div class="content proliferate-dr">
+        <h2>Proliferative Diabetic Retinopathy Detected</h2>
+        <p>Your uploaded image has been analyzed, and the condition detected is Proliferative Diabetic Retinopathy (PDR). This is an advanced stage of diabetic retinopathy, and it requires immediate attention and management. Below is detailed information on understanding, managing, and treating this condition.</p>
+
+        <h3>Understanding Proliferative Diabetic Retinopathy (PDR)</h3>
+        <p>Proliferative Diabetic Retinopathy (PDR) is the most advanced stage of diabetic retinopathy, a complication of diabetes that affects the eyes. In PDR, abnormal new blood vessels (neovascularization) start to grow on the surface of the retina or into the vitreous gel, the fluid that fills the eye. These new vessels are fragile and can bleed into the eye, leading to vision loss or blindness if not treated promptly.</p>
+
+        <h4>What Causes Proliferative Diabetic Retinopathy?</h4>
+        <p>PDR is caused by prolonged high blood sugar levels that damage the blood vessels in the retina. This damage leads to poor blood flow, causing the retina to grow new blood vessels that are weak and prone to bleeding. Risk factors include:</p>
+        <ul>
+            <li><strong>Long-standing Diabetes:</strong> The longer you have diabetes, especially if it is poorly controlled, the higher the risk of developing PDR.</li>
+            <li><strong>Uncontrolled Blood Sugar:</strong> Poor management of blood sugar levels increases the risk of PDR.</li>
+            <li><strong>High Blood Pressure:</strong> Hypertension can exacerbate retinal damage.</li>
+            <li><strong>High Cholesterol:</strong> Elevated cholesterol levels can contribute to blood vessel damage in the retina.</li>
+            <li><strong>Pregnancy:</strong> Pregnancy can increase the risk of diabetic retinopathy progressing to PDR.</li>
+        </ul>
+
+        <h4>Signs and Symptoms</h4>
+        <p>Proliferative Diabetic Retinopathy may not cause noticeable symptoms until significant damage has occurred. When symptoms do occur, they may include:</p>
+        <ul>
+            <li>Floaters or dark spots in your vision</li>
+            <li>Blurred vision</li>
+            <li>Sudden loss of vision</li>
+            <li>Poor night vision</li>
+            <li>Difficulty seeing colors</li>
+            <li>Vision loss in severe cases</li>
+        </ul>
+
+        <h3>Management and Treatment</h3>
+        <p>Immediate management of PDR is crucial to prevent further vision loss. Treatment options may include:</p>
+        <ul>
+            <li><strong>Laser Treatment (Panretinal Photocoagulation):</strong>
+                <ul>
+                    <li>This is the most common treatment for PDR. The laser creates small burns in the retina to stop the growth of new blood vessels and seal the leaky ones.</li>
+                    <li>The procedure may require more than one session and is typically performed in an outpatient setting.</li>
+                </ul>
+            </li>
+            <li><strong>Anti-VEGF Injections:</strong>
+                <ul>
+                    <li>Medications that inhibit vascular endothelial growth factor (VEGF) can be injected into the eye to reduce new blood vessel growth and swelling.</li>
+                    <li>These injections may need to be repeated over time to maintain effectiveness.</li>
+                </ul>
+            </li>
+            <li><strong>Vitrectomy:</strong>
+                <ul>
+                    <li>This surgical procedure may be necessary if there is significant bleeding (vitreous hemorrhage) or scarring in the eye. It involves removing the vitreous gel and replacing it with a clear solution.</li>
+                    <li>Vitrectomy can also be used to repair retinal detachment caused by PDR.</li>
+                </ul>
+            </li>
+            <li><strong>Blood Sugar Control:</strong>
+                <ul>
+                    <li>Tight control of blood sugar levels is critical to slowing the progression of PDR and preventing further damage.</li>
+                    <li>Work closely with your healthcare provider to manage your diabetes effectively.</li>
+                </ul>
+            </li>
+            <li><strong>Blood Pressure and Cholesterol Management:</strong>
+                <ul>
+                    <li>Controlling blood pressure and cholesterol levels can help reduce the risk of worsening PDR.</li>
+                </ul>
+            </li>
+            <li><strong>Regular Eye Exams:</strong>
+                <ul>
+                    <li>Frequent eye examinations are essential to monitor the progression of PDR and adjust treatment as needed.</li>
+                    <li>Your eye care specialist may recommend exams as often as every 3 to 4 months.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Precautions and Preventative Measures</h3>
+        <p>Preventing PDR or managing it effectively involves several critical steps:</p>
+        <ul>
+            <li><strong>Maintain Tight Blood Sugar Control:</strong> Keep your blood sugar levels within the target range set by your healthcare provider to minimize retinal damage.</li>
+            <li><strong>Monitor Blood Pressure and Cholesterol:</strong> Regularly check and manage your blood pressure and cholesterol levels.</li>
+            <li><strong>Adopt a Healthy Diet:</strong> A diet rich in fruits, vegetables, whole grains, and lean proteins can support overall eye health.</li>
+            <li><strong>Quit Smoking:</strong> Smoking can exacerbate vascular damage. Quitting smoking is crucial for managing diabetes and reducing the risk of complications like PDR.</li>
+            <li><strong>Regular Exercise:</strong> Engage in regular physical activity to improve overall health and help manage blood sugar levels.</li>
+            <li><strong>Follow Up with Regular Eye Care:</strong> Attend all scheduled eye exams and follow your eye care specialist's recommendations for treatment and monitoring.</li>
+        </ul>
+
+        <h3>Further Steps and Resources</h3>
+        <p>Living with Proliferative Diabetic Retinopathy requires ongoing management and support. Here are some further steps:</p>
+        <ul>
+            <li><strong>Educational Support:</strong> Learn more about PDR through educational resources and support groups for individuals with diabetic eye conditions.</li>
+            <li><strong>Technology Tools:</strong> Utilize apps and devices to track your blood sugar levels, blood pressure, and vision changes.</li>
+            <li><strong>Family and Community Support:</strong> Engage your family and community in your care plan. Their support can make a significant difference in managing your condition.</li>
+        </ul>
+
+        <p>Proliferative Diabetic Retinopathy is a serious condition that requires prompt and ongoing management. By working closely with your healthcare team, making informed lifestyle choices, and adhering to treatment plans, you can protect your vision and maintain a good quality of life.</p>
+    </div>
+   
+    {% elif predict == 'Severe' %}
+    <div class="content severe-diabetic">
+        <h2>Diabetes: Severe Condition Detected</h2>
+        <p>The analysis of your uploaded image indicates a severe diabetic condition. This stage is critical and requires immediate attention and management to prevent serious complications. Below, you’ll find important information on understanding, managing, and addressing severe diabetes.</p>
+
+        <h3>Understanding Severe Diabetes</h3>
+        <p>Severe diabetes is characterized by significantly high blood sugar levels that are often associated with serious complications such as damage to the heart, kidneys, eyes, and nerves. This condition usually corresponds to advanced type 2 diabetes or uncontrolled diabetes that has not been effectively managed over time.</p>
+
+        <h4>Causes of Severe Diabetes</h4>
+        <p>Severe diabetes can result from a combination of factors, including:</p>
+        <ul>
+            <li><strong>Poorly Managed Diabetes:</strong> Failure to control blood sugar levels over time.</li>
+            <li><strong>Long-Term Insulin Resistance:</strong> The body's cells become resistant to insulin, making it difficult to manage blood sugar levels.</li>
+            <li><strong>Complications of Type 2 Diabetes:</strong> If type 2 diabetes is not adequately managed, it can progress to a severe state.</li>
+            <li><strong>Lifestyle Factors:</strong> Lack of exercise, poor diet, obesity, and smoking can contribute to worsening diabetes.</li>
+            <li><strong>Genetic Predisposition:</strong> A family history of diabetes may increase the risk of developing severe diabetes.</li>
+        </ul>
+
+        <h4>Signs and Symptoms</h4>
+        <p>Severe diabetes can present with a variety of symptoms that may include:</p>
+        <ul>
+            <li>Frequent and unexplained fatigue</li>
+            <li>Increased thirst and dry mouth</li>
+            <li>Frequent urination, especially at night</li>
+            <li>Blurred vision</li>
+            <li>Slow healing of cuts and sores</li>
+            <li>Tingling or numbness in the hands and feet</li>
+            <li>Unexplained weight loss</li>
+            <li>Recurrent infections, such as urinary tract infections or skin infections</li>
+        </ul>
+
+        <h3>Immediate Management and Care</h3>
+        <p>If you have been diagnosed with severe diabetes, immediate action is necessary to manage your condition effectively. The following steps are critical:</p>
+        <ul>
+            <li><strong>Strict Blood Sugar Monitoring:</strong> 
+                <ul>
+                    <li>Check your blood sugar levels multiple times a day using a glucometer or a continuous glucose monitor (CGM).</li>
+                    <li>Keep a detailed log of your readings and share them with your healthcare provider.</li>
+                </ul>
+            </li>
+            <li><strong>Medication and Insulin Therapy:</strong> 
+                <ul>
+                    <li>Take prescribed medications as directed by your healthcare provider.</li>
+                    <li>If insulin is prescribed, follow the dosage instructions carefully.</li>
+                    <li>Regularly review your medication plan with your doctor to ensure it remains effective.</li>
+                </ul>
+            </li>
+            <li><strong>Dietary Changes:</strong> 
+                <ul>
+                    <li>Adopt a low-carbohydrate, high-fiber diet to help control blood sugar levels.</li>
+                    <li>Avoid foods with high glycemic indexes such as sugary snacks, white bread, and sugary drinks.</li>
+                    <li>Consider working with a dietitian to develop a meal plan tailored to your needs.</li>
+                </ul>
+            </li>
+            <li><strong>Regular Physical Activity:</strong> 
+                <ul>
+                    <li>Incorporate daily physical activity, such as walking, swimming, or cycling, to help control blood sugar levels.</li>
+                    <li>Be cautious of exercise intensity; consult your doctor before starting any new exercise program.</li>
+                </ul>
+            </li>
+            <li><strong>Foot Care:</strong> 
+                <ul>
+                    <li>Inspect your feet daily for any cuts, blisters, or signs of infection.</li>
+                    <li>Wear comfortable shoes that fit well to prevent foot injuries.</li>
+                    <li>See a podiatrist regularly to manage any foot issues that may arise.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Potential Complications of Severe Diabetes</h3>
+        <p>Without proper management, severe diabetes can lead to serious health complications, including:</p>
+        <ul>
+            <li><strong>Cardiovascular Disease:</strong> Increased risk of heart attacks, stroke, and atherosclerosis.</li>
+            <li><strong>Kidney Damage (Diabetic Nephropathy):</strong> May lead to kidney failure requiring dialysis or transplant.</li>
+            <li><strong>Eye Damage (Diabetic Retinopathy):</strong> Can result in blindness if untreated.</li>
+            <li><strong>Nerve Damage (Diabetic Neuropathy):</strong> Can cause pain, tingling, or loss of sensation in the limbs.</li>
+            <li><strong>Foot Damage:</strong> Can lead to serious infections, ulcers, and in severe cases, amputation.</li>
+            <li><strong>Skin Conditions:</strong> Increased susceptibility to bacterial and fungal infections.</li>
+        </ul>
+
+        <h3>Long-Term Management and Lifestyle Adjustments</h3>
+        <p>Managing severe diabetes is a long-term commitment that requires significant lifestyle adjustments. Consider the following long-term strategies:</p>
+        <ul>
+            <li><strong>Regular Healthcare Appointments:</strong> 
+                <ul>
+                    <li>Schedule regular check-ups with your healthcare provider to monitor your condition and adjust treatment plans as necessary.</li>
+                    <li>Attend specialized diabetes clinics for comprehensive care.</li>
+                </ul>
+            </li>
+            <li><strong>Education and Support:</strong> 
+                <ul>
+                    <li>Take advantage of diabetes education programs to learn more about managing your condition.</li>
+                    <li>Join a diabetes support group to connect with others who understand your challenges.</li>
+                </ul>
+            </li>
+            <li><strong>Mental Health:</strong> 
+                <ul>
+                    <li>Managing a severe chronic condition can be stressful. Consider counseling or therapy to help cope with emotional challenges.</li>
+                    <li>Practice stress-relief techniques such as meditation, deep breathing exercises, or yoga.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Precautions and Preventative Measures</h3>
+        <p>To prevent further complications, it’s important to take the following precautions:</p>
+        <ul>
+            <li><strong>Avoid Smoking:</strong> Smoking increases the risk of cardiovascular complications and worsens insulin resistance.</li>
+            <li><strong>Limit Alcohol Intake:</strong> Alcohol can cause fluctuations in blood sugar levels and interact with medications.</li>
+            <li><strong>Maintain a Healthy Diet:</strong> Focus on whole foods, plenty of vegetables, and lean proteins.</li>
+            <li><strong>Stay Hydrated:</strong> Drink plenty of water to help manage blood sugar levels and prevent dehydration.</li>
+            <li><strong>Adherence to Treatment:</strong> Follow your treatment plan closely, including taking medications as prescribed and making lifestyle changes.</li>
+        </ul>
+
+        <h3>Resources and Further Support</h3>
+        <p>Dealing with severe diabetes requires a comprehensive approach. Here are some resources to help you manage your condition:</p>
+        <ul>
+            <li><strong>Diabetes Education Programs:</strong> Access local or online programs that provide information on managing diabetes.</li>
+            <li><strong>Mobile Apps:</strong> Utilize apps designed to help track blood sugar levels, medications, and dietary intake.</li>
+            <li><strong>Support Networks:</strong> Connect with support groups for individuals with diabetes to share experiences and advice.</li>
+            <li><strong>Professional Help:</strong> Consider consulting an endocrinologist or a diabetes specialist for advanced care options.</li>
+        </ul>
+
+        <p>It's crucial to approach the management of severe diabetes with diligence and determination. Early and aggressive management can help reduce the risk of complications and improve your quality of life. Always consult with your healthcare provider before making any significant changes to your treatment plan.</p>
+    </div>
+    
+    
+    
+    {% endif %}
+{% endif %}
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+<script>
+    // Add JavaScript functionality if needed
+    document.querySelector('.btn').addEventListener('click', function() {
+        alert('You clicked the Learn More button!');
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    const card = document.querySelector('.card');
+
+    card.addEventListener('mouseover', function() {
+        card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.3)';
+    });
+
+    card.addEventListener('mouseout', function() {
+        card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    });
+});
+
+</script>
+
+
+</body>
+
+</html>

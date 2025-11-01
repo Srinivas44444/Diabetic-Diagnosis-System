@@ -1,0 +1,196 @@
+{% extends "users/base.html" %}
+{% block title %}Profile Page{% endblock title %}
+{% block content %}<br><br><br><br>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #278f9c; /* Light cyan background */
+        }
+
+        /* Profile Container Styles */
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full viewport height */
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 20px;
+        }
+
+        .profile-content {
+            max-width: 600px; /* Adjust as needed */
+            width: 100%;
+            background-color: #f8c5c5;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s ease-out; /* Fade in effect */
+        }
+
+        .profile-content::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, #009688, #00796b);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .profile-header img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #00796b; /* Green border */
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-header img:hover {
+            transform: scale(1.1); /* Zoom effect on hover */
+        }
+
+        /* Form Content Styles */
+        .form-content {
+            background-color: #f1f8e9; /* Light green background */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            position: relative;
+            animation: slideUp 1s ease-out; /* Slide up effect */
+        }
+
+        .form-content::after {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #00796b, #004d40);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #004d40; /* Darker green for labels */
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #00796b; /* Green primary button */
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #004d40; /* Darker green on hover */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        .btn-secondary {
+            background-color: #b0bec5; /* Light gray secondary button */
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #90a4ae; /* Darker gray on hover */
+            transform: scale(1.05); /* Slight zoom effect */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-content animate__animated animate__fadeIn">
+            <h4>Edit Your Profile</h4>
+            <div class="profile-header">
+                <img class="account-img" src="{{ user.profile.avatar.url }}" alt="Profile Image">
+            </div>
+
+            {% if user_form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {% for key, value in user_form.errors.items %}
+                        <p>{{ value }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="form-content animate__animated animate__slideInUp">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Username:</label>
+                        {{ user_form.username }}
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        {{ user_form.email }}
+                    </div>
+                    <div class="form-group">
+                        <a href="{% url 'password_change' %}">Change Password</a>
+                        <hr>
+                        <label>Change Avatar:</label>
+                        {{ profile_form.avatar }}
+                    </div>
+                    <div class="form-group">
+                        <label>Bio:</label>
+                        {{ profile_form.bio }}
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script
+
+{% endblock content %}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Management</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,400i,700">
+    <style>
+        :root {
+            --bg-color: rgb(240, 245, 250);
+            --primary-color: rgb(31, 122, 140);
+            --secondary-color: rgb(191, 219, 247);
+            --accent-color: rgb(198, 136, 102);
+            --white: rgb(255, 255, 255);
+            --dark: rgb(2, 43, 58);
+            --light-grey: rgb(225, 229, 242);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--bg-color);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 0 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        ul.list-disc {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        ul.list-outside {
+            list-style-position: outside;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            border: 1px solid var(--light-grey);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            flex: 1 1 calc(33.333% - 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img.round {
+            border-radius: 50%;
+            border: 2px solid var(--accent-color);
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin: 15px 0;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin: 10px 0;
+            color: var(--primary-color);
+        }
+
+        .card-content {
+            padding: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        button.primary {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 4px;
+            color: var(--white);
+            font-weight: 500;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        button.primary.ghost {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        button.primary.ghost:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+        a.top {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #053777;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+a.top:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+    </style>
+</head>
+<body>
+    <a href="/" class="top">Back to Home</a>
+    {% if prediction_text == 'THE DIABETIC MIGHT NOT BE IN THIS CONDITION.' %}
+    <br><br>
+    <center><div style="justify-content: center;">
+        <h1>THE DIABETIC MIGHT NOT BE COME IN THIS CONDITIONS.</h1>
+    </div></center>
+    <div class="container">
+        <h2>Not Diabetes Occurred</h2>
+        <h3>Prevention of Not Diabetes Occurred</h3>
+        <ul class="list-disc">
+            <li>Maintain a Healthy Lifestyle:
+                <br>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.
+                <br>Limit intake of sugars, refined carbohydrates, and unhealthy fats.
+                <br>Stay hydrated by drinking an adequate amount of water.</li>
+            <li>Regular Exercise:
+                <br>Engage in regular physical activity, such as brisk walking, jogging, swimming, or cycling.
+                <br>Aim for at least 150 minutes of moderate-intensity exercise per week.</li>
+            <li>Manage Weight:
+                <br>Maintain a healthy weight through a combination of a balanced diet and regular exercise.</li>
+            <li>Monitor Blood Sugar Levels:
+                <br>Keep blood sugar levels within the recommended range through regular monitoring, especially if you are at risk.</li>
+            <li>Regular Health Check-ups:
+                <br>Schedule regular check-ups with your healthcare provider to monitor and manage any health conditions.</li>
+            <li>Quit Smoking:
+                <br>Smoking increases the risk of diabetes. Quitting smoking can have immediate and long-term health benefits.</li>
+            <li>Limit Alcohol Intake:
+                <br>If you drink alcohol, do so in moderation. Limit intake to one drink per day for women and up to two drinks per day for men.</li>
+        </ul>
+
+        <h3>Precautions for Not Diabetes Occurred</h3>
+        <ul class="list-disc">
+            <li>Know the Warning Signs:
+                <br>Learn and recognize the early signs of diabetes, such as frequent urination, excessive thirst, extreme fatigue, blurred vision, and slow healing of wounds.</li>
+            <li>Seek Immediate Medical Attention:
+                <br>If you suspect you have symptoms of diabetes, seek medical advice promptly. Early detection is key in managing the condition.</li>
+            <li>Take Medications as Prescribed:
+                <br>If diagnosed with diabetes or pre-diabetes, take medications as prescribed by your healthcare provider.</li>
+            <li>Follow Dietary and Lifestyle Recommendations:
+                <br>Adhere to dietary guidelines and lifestyle modifications provided by healthcare professionals.</li>
+            <li>Stay Informed:
+                <br>Stay informed about your health condition, medications, and recommended lifestyle changes.</li>
+        </ul>
+    </div>
+    {% elif prediction_text == 'THE DIABETIC MIGHT BE IN THIS CONDITION.' %}
+    <br><br>
+    <center><div style="justify-content: center;">
+        <h1>'THE DIABETIC MIGHT BE IN THIS CONDITION.</h1>
+    </div></center>
+    <div class="container">
+        <h2>Diabetes Predicted</h2>
+        <h3>Steps to Manage Diabetes</h3>
+        <ul class="list-disc">
+            <li>Follow a Diabetes-Friendly Diet:
+                <br>Focus on eating balanced meals with controlled portions of carbohydrates.
+                <br>Include plenty of non-starchy vegetables, lean proteins, and healthy fats.
+                <br>Avoid sugary drinks and limit high-sugar and high-fat foods.</li>
+            <li>Monitor Blood Sugar Regularly:
+                <br>Check your blood sugar levels as recommended by your healthcare provider.
+                <br>Adjust your diet, activity, and medication based on your readings.</li>
+            <li>Take Medications as Prescribed:
+                <br>Ensure you take insulin or other diabetes medications exactly as prescribed.
+                <br>Communicate with your healthcare provider if you experience any side effects.</li>
+            <li>Engage in Regular Physical Activity:
+                <br>Exercise helps to control blood sugar levels. Aim for at least 30 minutes of moderate exercise most days of the week.</li>
+            <li>Manage Stress:
+                <br>Stress can affect your blood sugar levels. Practice relaxation techniques like deep breathing, meditation, or yoga.</li>
+            <li>Stay Hydrated:
+                <br>Drink plenty of water throughout the day. Proper hydration can help control blood sugar levels.</li>
+            <li>Avoid Smoking and Limit Alcohol:
+                <br>Smoking can worsen diabetes complications. If you drink alcohol, do so in moderation.</li>
+            <li>Attend Regular Medical Check-ups:
+                <br>Have regular appointments with your healthcare provider to monitor your condition and make necessary adjustments to your treatment plan.</li>
+        </ul>
+
+        <h3>Precautions for Diabetes Management</h3>
+        <ul class="list-disc">
+            <li>Know the Signs of Complications:
+                <br>Be aware of the signs of potential complications, such as foot problems, vision changes, or kidney issues. Early detection is key to prevention.</li>
+            <li>Regular Eye and Foot Exams:
+                <br>Schedule regular eye exams to check for diabetic retinopathy and foot exams to prevent ulcers and infections.</li>
+            <li>Adhere to Foot Care Guidelines:
+                <br>Inspect your feet daily for cuts or blisters and keep them clean and dry.</li>
+            <li>Manage Other Health Conditions:
+                <br>Control blood pressure and cholesterol levels to reduce the risk of cardiovascular diseases.</li>
+            <li>Educate Yourself:
+                <br>Stay informed about diabetes management and treatment options through reputable sources and healthcare professionals.</li>
+        </ul>
+    </div>
+    
+    <div class="container">
+        <h2>Prevention of Diabetes</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://via.placeholder.com/100" alt="Preventive Care" class="round">
+                <div class="card-content">
+                    <h3 class="card-title">Healthy Eating</h3>
+                    <p>Adopt a balanced diet to manage and prevent diabetes. Focus on whole foods and limit processed options.</p>
+                    <button class="primary" onclick="window.location.href='https://www.who.int/initiatives/behealthy/healthy-diet#:~:text=A%20healthy%20diet%20is%20essential,are%20essential%20for%20healthy%20diet.'">Learn More</button>
+
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/100" alt="Exercise" class="round">
+                <div class="card-content">
+                    <h3 class="card-title">Regular Exercise</h3>
+                    <p>Engage in physical activities to maintain a healthy weight and improve insulin sensitivity.</p>
+                    <button class="primary" onclick="window.location.href='https://medlineplus.gov/benefitsofexercise.html'">Learn More</button>
+
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/100" alt="Medical Checkups" class="round">
+                <div class="card-content">
+                    <h3 class="card-title">Regular Checkups</h3>
+                    <p>Schedule routine health checkups to monitor risk factors and catch any early signs of diabetes.</p>
+                    <button class="primary" onclick="window.location.href='https://www.apolloclinic.com/blog/why-should-one-go-for-a-regular-health-check-up/'">Learn More</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

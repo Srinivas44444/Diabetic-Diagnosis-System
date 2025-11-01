@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+	
+	<!-- ====================================================
+	header section -->
+	<header class="top-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5 header-logo">
+					<br>
+                    <br>
+					<a href="/"><img src="/static/img/diabetes.png" alt="" class="img-responsive logo"></a>
+				</div>
+
+				<div class="col-md-7">
+					<nav class="navbar navbar-default">
+					  <div class="container-fluid nav-bar">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					    </div>
+
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					      
+					      <ul class="nav navbar-nav navbar-right">
+					        <li><a class="menu active" href="#home" >Home</a></li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-menu dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="reportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dataset Report
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="reportDropdown">
+                                  <a class="dropdown-item" href="{% url 'Basic' %}">Basic Report</a><br>
+                                  <a class="dropdown-item" href="{% url 'Metrics' %}">Metrics Report</a>
+                                </div>
+                            </li>
+                            <li class="nav-menu dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="reportDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    DataBase
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="reportDropdown">
+                                  <a class="dropdown-item" href="{% url 'Database' %}">DL Database</a><br>
+                                  <a class="dropdown-item" href="{% url 'ML_DB' %}">ML Database</a>
+                                </div>
+                            </li>
+					        <li><a class="menu" href="{% url 'users-profile' %}">Profile </a></li>
+					        <li><a class="menu" href="{% url 'logout_view' %}">Logout </a></li>
+                            {% else %}
+                            <li><a class="menu" href="{% url 'login' %}">Login </a></li>
+                            {% endif %}
+					      </ul>
+					    </div><!-- /navbar-collapse -->
+					  </div><!-- / .container-fluid -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header> <!-- end of header area -->
+
+	<section class="slider" id="home">
+		<div class="container-fluid">
+			<div class="row">
+			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+					<div class="header-backup"></div>
+			        <!-- Wrapper for slides -->
+			        <div class="carousel-inner" role="listbox">
+			            <div class="item active">
+			            	<img src="/static/img/slide-three.jpg" alt="">
+			                <div class="carousel-caption">
+		               			<h2 style="color: rgb(255, 38, 0);">Diabetic Diagnosis</h2>
+		               			<p style="color: rgb(255, 38, 0);">using Deep Learning & Machine Learning</p>
+                                {% if user.is_authenticated %}
+		               			<button onclick="window.location.href='{% url 'Deploy_9' %}'" class="btn btn-primary">Prediction</button>
+                                <button onclick="window.location.href='{% url 'Deploy_8' %}'" class="btn btn-primary">detection</button>
+                                {% endif %}
+                                <!-- <button href="" >detection</button> -->
+			                </div>
+			            </div>
+			            
+			        </div>
+			      
+			    </div>
+			</div>
+		</div>
+	</section><!-- end of slider section -->
+    {% if user.is_authenticated %}
+	<!-- about section -->
+	<section class="about text-center" id="about">
+        <div class="container">
+            <div class="row">
+                <h2>About Us</h2>
+                <h4>Our mission is to provide accurate and timely diabetic diagnosis to help manage and prevent diabetes effectively.</h4>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-about-detail clearfix">
+                        
+                        <div class="about-details">
+                            <div class="pentagon-text">
+                                <h1>D</h1>
+                            </div>
+                            <h3>Diabetic Specialist</h3>
+                            <p>Our diabetic specialists have years of experience in diagnosing and managing diabetes, providing personalized treatment plans to improve patient outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-about-detail">
+                        
+                        <div class="about-details">
+                            <div class="pentagon-text">
+                                <h1>H</h1>
+                            </div>
+                            <h3>Healthcare Expert</h3>
+                            <p>Our healthcare experts are dedicated to providing the best care for diabetes management, from diagnostic tests to lifestyle advice and follow-up care.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-about-detail">
+                        
+                        <div class="about-details">
+                            <div class="pentagon-text">
+                                <h1>N</h1>
+                            </div>
+                            <h3>Nutritionist</h3>
+                            <p>Our nutritionists provide expert guidance on diet and nutrition to help manage diabetes effectively and promote overall health and well-being.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of about section -->
+
+    {% endif %}
+
+	<section class="service text-center" id="service">
+        <div class="container">
+            <div class="row">
+                <h2>Our Technologies</h2>
+                <h3 style="color: WHITE;">Leveraging advanced machine learning and deep learning techniques for accurate diabetic prediction and detection.</h3>
+                <br><div class="col-md-3 col-sm-6">
+                    <div class="single-service">
+                        <div class="single-service">
+                            <img class="ml-detection img-responsive" src="/static/img/ML1.png" alt="ML Detection">
+                        </div>
+                        <h1>Machine Learning Prediction</h1>
+                        <p>Utilizing machine learning algorithms to identify early signs of diabetes from various data sources.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-service">
+                        <div class="single-service-">
+                             <img class="deep-learning img-responsive" src="/static/img/DP1.png" alt="Deep Learning"> 
+                        </div>
+                        <h1>Deep Learning Models</h1>
+                        <p>Employing deep learning models for enhanced accuracy in predicting diabetes risk and progression.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-service">
+                        <div class="single-service">
+                            
+                                <img class="django-integration img-responsive" src="/static/img/DP.png" alt="Django Integration">
+                            
+                        </div>
+                        <h1>Django Integration</h1>
+                        <p>Seamless integration with Django for user-friendly interfaces and real-time predictions.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="single-service">
+                        <div class="single-service">
+                            
+                                <img class="data-analysis img-responsive" src="/static/img/ML2.png" alt="Data Analysis">
+                            
+                        </div>
+                        <h1>Data Analysis & Insights</h1>
+                        <p>Advanced data analysis to provide actionable insights and improve diabetes management strategies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End of service section -->
+<style>
+   /* Service section */
+.service {
+    padding: 60px 0;
+    background-color: #f4f4f4;
+}
+
+
+
+.service h4 {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.single-service {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.single-service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.single-service-img {
+    margin-bottom: 15px;
+}
+
+.service-img {
+    display: flex;
+    justify-content: center;
+}
+
+.service-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.single-service h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
+
+</style>
+	
+	
+	<!-- script tags
+	============================================================= -->
+	<script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="{% static 'js/gmaps.js' %}"></script>
+	<script src="{% static 'js/smoothscroll.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

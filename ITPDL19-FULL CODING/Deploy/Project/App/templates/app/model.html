@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background:url("https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&w=600");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+        .container{
+            width: 400px;
+            height: 200px;
+            border-style: solid;
+            background-color: rgb(143, 141, 138, 0.3);
+        }
+        form{
+            margin-top: 50px;
+            margin-left: 40px;
+        }
+        </style>
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <center>
+  <!-- <center><h1 style="color: rgb(156, 0, 0);">BONE FRACTURE CLASSIFICATIONS USING DEEP LEARNING TECHNIQUES</h1> -->
+        <a href="/" style="color: rgb(238, 238, 238); font-size: 30px; " >Home</a><br><br><br>
+        <div class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p style="margin-right: 170px;">*  This field is requied</p>
+            {{ form.as_p }}
+            <input type="submit" Value='UPLOAD' style="margin-right: 230px;">
+        </form><br><br><br><br>
+        </div>
+    </center><br>
+ 
+</body>
+</html>

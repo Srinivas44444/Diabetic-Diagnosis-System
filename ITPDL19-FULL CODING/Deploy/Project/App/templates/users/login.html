@@ -1,0 +1,199 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login design ui</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  padding:0;
+  margin:0;
+  font-family:'poppins',sans-serif;
+  user-select:none;
+}
+.contain{
+  width:auto;
+  height:100vh;
+  background-color: #19b7ca;
+  background-image: linear-gradient(0deg, #19b7ca 0%, #b263ff 100%);
+
+}
+.main{
+  background:none;
+  width:500px;
+  height:21rem;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:5px;
+  display: grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-template-rows:100%;
+  backdrop-filter: blur(2px);
+  box-shadow:0px 0px 10px 3px #FFFFFF;
+}
+.left{
+ border-radius:5px 0 0 5px; background:rgba(255,255,255,0.4);
+  opacity:1;
+}
+h3{
+  position:absolute;
+  top:40%;
+  left:21%;
+  transform:translate(-30%,-50%);
+  font-size:29px;
+  color:white;
+  font-weight:300;
+  background:rgba(128, 129, 202, 1);
+  border-radius: 37% 63% 30% 70% / 62% 42% 58% 38%;
+  height:80px;
+  width:120px;
+  text-align:center;
+  padding-top:40px;
+  animation:border;
+  animation-duration:8s;
+  animation-iteration-count:infinite;
+}
+@keyframes border{
+  0%{
+    border-radius:37% 63% 30% 70% / 62% 42% 58% 38%;
+  }
+  30%{
+    border-radius:58% 42% 44% 56% / 38% 70% 30% 62%;
+  }
+  50%{
+    border-radius:72% 28% 88% 12% / 25% 45% 55% 75%;
+  }
+  70%{
+    border-radius:36% 64% 37% 63% / 52% 64% 36% 48%;
+  }
+  90%{
+    border-radius:70% 30% 62% 38% / 26% 47% 53% 74%;
+  }
+}
+a{
+  position:absolute;
+  top:90%;
+  left:15%;
+  color:black;
+  font-weight:300;
+}
+.right{
+  border-radius:0 5px 5px 0; 
+  background:rgba(255,255,255,0.8);
+}
+input{
+  margin-left:22px;
+  width:80%;
+  height:29px;
+  border-radius:5px;
+  border:none;
+  outline:none;
+  box-shadow:1.1px 1.2px 6px 1px gray;
+  padding:5px;
+  transition:0.3s;
+}
+span{
+  display:flex;
+}
+.check{
+  margin-top:5px;
+  width:15px;
+  heiht:15px;
+  box-shadow:none;
+  accent-color:green;
+}
+label{
+  margin-top:8.5px;
+  margin-left:5px;
+  font-size:14px;
+}
+.txt{
+  margin-top:50px;
+}
+.pass{
+  margin-top:20px;
+}
+.email{
+  margin-top:20px;
+}
+button{
+  cursor:pointer;
+}
+#sub{
+  margin-top:20px;
+  margin-left:1.5rem;
+  border:none;
+  background:none;
+  font-size:16px;
+  padding:4px;
+  border-bottom:1px solid black;
+  transition:0.3s;
+}
+.rest{
+  float:right;
+  margin-top:20px;
+  margin-right:1.6rem;
+  border:none;
+  background:none;
+  font-size:16px;
+  padding:4px;
+  border-bottom:1px solid black;
+  transition:0.3s;
+}
+.rest:hover{
+  border-bottom:1px solid green;
+}
+#sub:hover{
+  border-bottom:1px solid green;
+}
+input:focus{
+  border-bottom:3px solid green;
+}
+  </style>
+</head>
+<body>
+  <div class="contain">
+    
+    <div class="main">
+      <div class="left">
+        <h3>L&nbspo&nbspg&nbspi&nbspn</h3>
+        <a href="https://codepen.io/itsdekusenpai"></a>
+      </div>
+      <div class="right">
+        <br>
+        <center><h1>Login</h1></center>
+        <br>
+        <form method="post" class="login-form ">
+          {% csrf_token %}
+          {% if form.errors %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <div id="form_errors">
+                    {% for key, value in form.errors.items %}
+                    <strong style="color: darksalmon;">{{ value }}</strong>
+                    {% endfor %}
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          {% endif %}
+          {{ form.username }}
+          
+          <br><br>
+          {{ form.password }}
+          <br>
+          
+       
+        
+          <br/>
+        <button id="sub">Submit</button>
+        <h4 class="message"><a href="{% url 'users-register' %}">Go to Register</a></h4>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>
