@@ -29,6 +29,6 @@ Developed an AI-based Diabetes Diagnosis System integrating Machine Learning (Gr
 * Gradient Boosting Classifier achieved optimal performance on the dataset after data preprocessing and feature selection.
 * The LeNet model reached 97% accuracy after training for 200 epochs.
 
-Author - Thanga Venkat Srinivas
+Author - Thanga Venkat Srinivas<br>
 B.Tech - AI & DS (2021-2025)
 
